@@ -1,5 +1,5 @@
-% Created 2019-07-16 Tue 17:15
-\documentclass[a4paper,twocolumn]{article}
+% Created 2019-07-16 Tue 17:45
+\documentclass[]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{fixltx2e}
@@ -31,6 +31,7 @@
 \begin{document}
 
 \maketitle
+
 
 
 \section{Abstract}
@@ -158,6 +159,53 @@ Shows mathematically that using a neural network to estimate and \textbf{continu
 \end{figure*}
 
 
+
+\subsection{Analysis of binary two-moons dataset classification using Bayesian Neural Networks(PyMC3)}
+\label{sec-5-3}
+\begin{figure*}[!htp]
+    \subfloat[Toy Two Moon Dataset]{\label{2moondataset}\includegraphics[width=0.50\linewidth]{bnn_classification_two_moon/dataset.png}}\hfill
+    \subfloat[Prediction of Test Set by the Bayesian-NN  ]{\label{2moonpredicted}\includegraphics[width=0.50\linewidth]{bnn_classification_two_moon/predicted.png}}\\
+    \subfloat[Prediction Contour]{\label{2moon_pred_contour}\includegraphics[width=0.50\linewidth]{bnn_classification_two_moon/prediction_contour.png}}\hfill
+    \subfloat[Uncertainty Contour]{\label{2moon_uncer_contour}\includegraphics[width=0.50\linewidth]{bnn_classification_two_moon/uncertainity_contour.png}}\\
+    \caption{Bayesian Neural Network trained to classify Two-Moon Dataset}
+\end{figure*}
+
+
+
+\subsection{Analysis of discontinuous regression using Bayesian Neural Networks(numpyro)}
+\label{sec-5-4}
+
+\begin{figure*}[!htp]
+    \subfloat[sigma: 0.2 ]{\includegraphics[width=0.20\linewidth]{discontinuous_regression/discont_reg_02.png}}\hfill
+    \subfloat[sigma: 0.5 ]{\includegraphics[width=0.20\linewidth]{discontinuous_regression/discont_reg_05.png}}\hfill
+    \subfloat[sigma: 1.0 ]{\includegraphics[width=0.20\linewidth]{discontinuous_regression/discont_reg_10.png}}\hfill
+    \subfloat[sigma: 2.0 ]{\includegraphics[width=0.20\linewidth]{discontinuous_regression/discont_reg_20.png}}\hfill
+    \subfloat[sigma: 5.0 ]{\includegraphics[width=0.20\linewidth]{discontinuous_regression/discont_reg_50.png}}\\
+    \subfloat[Box plot of effective sample size of weights of each layer]{\includegraphics[width=1.00\linewidth]{discontinuous_regression/discont_effective_samples.png}}\\
+    \caption{Discontinuous regression using Bayesian Neural Networks}
+\end{figure*}
+
+Previous work on performance Neural Networks on non-smooth functions has been done in \cite{NNnonsmooth}. We extend this work by studying the behaviour of Neural Networks in the bayesian paradigm for non somooth regression. One of the aspects which interests us is the quantified uncertainity produced by the BNN. We also investigated its behaviour with changing prior $\sigma$ (applied to each weight). 
+
+
+
+\subsubsection*{Key Takeaways}
+\label{sec-5-4-1}
+$\sigma$ does have a considerable affect on the performance of the BNN. This could be because of excessive constraints on priors with smaller $\sigma$ when compared to a more relaxed prior for a large $\sigma$. This may have lead to a more "regularized" training leading to a "simpler" learned model.
+
+
+\subsection{Analysis of continuous regression using Bayesian Neural Networks(numpyro)}
+\label{sec-5-5}
+
+\begin{figure*}[!htp]
+    \subfloat[sigma: 0.2 ]{\includegraphics[width=0.20\linewidth]{continuous_regression/cont_reg_02.png}}\hfill
+    \subfloat[sigma: 0.5 ]{\includegraphics[width=0.20\linewidth]{continuous_regression/cont_reg_05.png}}\hfill
+    \subfloat[sigma: 1.0 ]{\includegraphics[width=0.20\linewidth]{continuous_regression/cont_reg_10.png}}\hfill
+    \subfloat[sigma: 2.0 ]{\includegraphics[width=0.20\linewidth]{continuous_regression/cont_reg_20.png}}\hfill
+    \subfloat[sigma: 5.0 ]{\includegraphics[width=0.20\linewidth]{continuous_regression/cont_reg_50.png}}\\
+    \subfloat[Box plot of effective sample size of weights of each layer]{\includegraphics[width=1.00\linewidth]{continuous_regression/cont_effective_samples.png}}\\
+    \caption{Continuous regression using Bayesian Neural Networks}
+\end{figure*}
 
 
 \section{Conclusion}

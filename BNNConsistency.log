@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=latex 2019.7.15)  16 JUL 2019 16:21
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=latex 2019.7.15)  16 JUL 2019 17:41
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1272,7 +1272,7 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `\cite' on input line 117.
 
 
-LaTeX Warning: File `knn_100runs.png' not found on input line 129.
+LaTeX Warning: File `knn_100runs.png' not found on input line 130.
 
 
 ! LaTeX Error: File `knn_100runs.png' not found.
@@ -1281,24 +1281,62 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.129 ...graphics[width = 3.1in]{knn_100runs.png}}
+l.130 ...graphics[width = 3.1in]{knn_100runs.png}}
                                                    &
+? 
+! Interruption.
+\GenericError  ...                                
+                                                  \endgroup 
+l.130 ...graphics[width = 3.1in]{knn_100runs.png}}
+                                                   &
+? 
+
+! LaTeX Error: Cannot determine size of graphic in knn_100runs.png (no Bounding
+Box).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.130 ...graphics[width = 3.1in]{knn_100runs.png}}
+                                                   &
+? 
+! Interruption.
+\GenericError  ...                                
+                                                  \endgroup 
+l.130 ...graphics[width = 3.1in]{knn_100runs.png}}
+                                                   &
+? 
+File: knn_100runs.png Graphic file (type eps)
+<knn_100runs.png>
+
+LaTeX Warning: File `svc_100runs.png' not found on input line 131.
+
+
+! LaTeX Error: File `svc_100runs.png' not found.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.131 ...graphics[width = 3.1in]{svc_100runs.png}}
+                                                   \\
 ? 
 ! Emergency stop.
  ...                                              
                                                   
-l.129 ...graphics[width = 3.1in]{knn_100runs.png}}
-                                                   &
+l.131 ...graphics[width = 3.1in]{svc_100runs.png}}
+                                                   \\
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
  
 Here is how much of TeX's memory you used:
- 15157 strings out of 494924
- 243187 string characters out of 6180768
+ 15162 strings out of 494924
+ 243265 string characters out of 6180768
  681657 words of memory out of 5000000
- 18293 multiletter control sequences out of 15000+600000
- 17097 words of font info for 55 fonts, out of 8000000 for 9000
+ 18296 multiletter control sequences out of 15000+600000
+ 17861 words of font info for 56 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 44i,12n,42p,969b,742s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 44i,16n,49p,969b,742s stack positions out of 5000i,500n,10000p,200000b,80000s
 Output written on BNNConsistency.dvi (1 page, 8048 bytes).

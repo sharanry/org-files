@@ -1,4 +1,4 @@
-% Created 2019-07-16 Tue 17:15
+% Created 2019-07-16 Tue 17:46
 \documentclass[a4paper,twocolumn]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -31,6 +31,7 @@
 \begin{document}
 
 \maketitle
+
 
 
 \section{Abstract}
@@ -183,6 +184,14 @@ Shows mathematically that using a neural network to estimate and \textbf{continu
     \subfloat[Box plot of effective sample size of weights of each layer]{\includegraphics[width=1.00\linewidth]{discontinuous_regression/discont_effective_samples.png}}\\
     \caption{Discontinuous regression using Bayesian Neural Networks}
 \end{figure*}
+
+Previous work on performance Neural Networks on non-smooth functions has been done in \cite{NNnonsmooth}. We extend this work by studying the behaviour of Neural Networks in the bayesian paradigm for non somooth regression. One of the aspects which interests us is the quantified uncertainity produced by the BNN. We also investigated its behaviour with changing prior $\sigma$ (applied to each weight). 
+
+
+
+\subsubsection*{Key Takeaways}
+\label{sec-5-4-1}
+$\sigma$ does have a considerable affect on the performance of the BNN. This could be because of excessive constraints on priors with smaller $\sigma$ when compared to a more relaxed prior for a large $\sigma$. This may have lead to a more "regularized" training leading to a "simpler" learned model.
 
 
 \subsection{Analysis of continuous regression using Bayesian Neural Networks(numpyro)}
