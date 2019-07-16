@@ -103,15 +103,16 @@ We reduce the complexity blocks in the VGG-16 and VGG-19 network in a gradual ma
 
     \( LOSS = KLDivergence(ParentModel, ChildModel) + CrossEntropyLoss(Y, \hat{Y}) \)
 
-
+./med
 * Results
 
 #+CAPTION: This is the caption for the next figure link (or table)
 #+NAME:   fig:SED-HR4049
 #+ATTR_ORG: :width 100px
   [[./media/vgg16-cifar10/vgg16_cifar10_Acc.png]]
-  [[./media/vgg16-cifar10/vgg16_cifar10_params_log.png]]
-  [[./media/vgg16-cifar10/vgg16_cifar10_size_log.png]]
+
+  [[./media/vgg16-cifar10/vgg16_cifar10_
+
 * Conclusion
 
 

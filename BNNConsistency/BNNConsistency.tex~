@@ -1,4 +1,4 @@
-% Created 2019-07-16 Tue 14:25
+% Created 2019-07-16 Tue 17:15
 \documentclass[a4paper,twocolumn]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -18,9 +18,11 @@
 \tolerance=1000
 \usepackage[citestyle=authoryear-icomp,bibstyle=authoryear,hyperref=true,backref=true,maxcitenames=3,url=true,backend=biber,natbib=true]{biblatex}
 \addbibresource{BNNConsistency.bib}
+\graphicspath{ {images/}}
+\usepackage{subfig}
 \setcounter{secnumdepth}{2}
 \author{Sharan Yalburgi, Julyan Arbel}
-\date{\today}
+\date{July, 2019}
 \title{Studying Uncertainity in Bayesian Neural Networks}
 \hypersetup{
   pdfkeywords={},
@@ -90,7 +92,7 @@ Shows that posterior probability of feedforward neural networks is \textbf{"asym
 
 \( P(|\int(\hat{g_n}(x) - g_0(x))^2f_0(x)dx| > \epsilon) \xrightarrow{} 0 \) as \( n \xrightarrow{} \infty\).
 \\
-\textbf{Asymptotically consistence in terms of Hellinger neighbourhood:} If $$(X_i, Y_i) ~ f_0$$, the posterior is asymptotically consistence for $$f_0$$(true joint distribution over X \& Y) over Hellinger neighbourhood if for every $$\epsilon>0$$
+\textbf{Asymptotically consistence in terms of Hellinger neighbourhood:} If \( (X_i, Y_i) ~ f_0 \), the posterior is asymptotically consistence for \(f_0\)(true joint distribution over X \& Y) over Hellinger neighbourhood if for every \(epsilon>0\)
 \begin{equation}
     P({f: D_H(f,f_0) <= \epsilon}|(X_i, Y_i) \forall i) \xrightarrow{p} 1
 \end{equation}
@@ -98,20 +100,65 @@ where Hellinger distance $$D_H$$ is defined as
 \begin{equation*}
     D_H(f, f_0) = \sqrt{\int\int(\sqrt{f(x, y)}-\sqrt{f_0(x, y)})^2 dx dy}
 \end{equation*}
-\textbf{Another approach to consistency}: Posterior probability of every neighbourhood of true function tends to 1, i.e, $$P(A_\epsilon|Y) \longrightarrow 1$$ as $$n\xrightarrow{}1$$.
+\textbf{Another approach to consistency}: Posterior probability of every neighbourhood of true function tends to 1, i.e, \(P(A_\epsilon|Y) \longrightarrow 1\) as \(n\xrightarrow{}1\).
 \\\\
 \textbf{Sieve Approach:} The number of hidden nodes grows with the sample size so that asymptotically they use arbitrarily large number of nodes.
 \\\\
 \textbf{Parameter Approach:} Number of hidden nodes taken as a parameter(not sure if as a hyperparameter) and show that joint posterior is also consistent.
 Extends earlier results on "universal approximation properties of neural networks to the Bayesian setting".
 \\\\
-Shows mathematically that using a neural network to estimate and \textbf{continuous or square integrable} function will be consistent with probability tending to one given enough data. This is when the number of nodes grew with amount of data in a controlled way but $$k(n) \xrightarrow{} \infty$$ as $$n \xrightarrow{} \infty$$ where $$k$$ is the number of nodes in the network or when the number of nodes is a parameter which can be estimated from the data.    
+Shows mathematically that using a neural network to estimate and \textbf{continuous or square integrable} function will be consistent with probability tending to one given enough data. This is when the number of nodes grew with amount of data in a controlled way but \(k(n) \xrightarrow{} \infty\) as \(n \xrightarrow{} \infty\) where \(k\) is the number of nodes in the network or when the number of nodes is a parameter which can be estimated from the data.    
 
 \section{Theory}
 \label{sec-4}
 
 \section{Experiments}
 \label{sec-5}
+\subsection{Results from \cite{cannings2018classification}}
+\label{sec-5-1}
+
+\begin{itemize}
+\item SVMs and Knns are robust/consistent to corrupted/imperfect data.
+\item Whereas, LDAs are not unless prior probabilities of each class are equal.
+\end{itemize}
+
+
+
+\begin{figure*}[ht]
+\begin{tabular}{cc}
+
+\subfloat[]{\includegraphics[width = 3.1in]{knn_100runs.png}} &
+\subfloat[]{\includegraphics[width = 3.1in]{svc_100runs.png}} \\
+\subfloat[]{\includegraphics[width = 3.1in]{lda_100runs.png}} &
+\subfloat[]{\includegraphics[width = 3.1in]{perceptron_100runs.png}}
+
+\end{tabular}
+\caption{Reproduced results from \cite{cannings2018classification} with data generated from multivariate Gaussian \& Perceptron Findings}
+\end{figure*}
+
+\subsection{Consistency in Perceptron and Deep Neural Networks}
+\label{sec-5-2}
+
+\begin{figure*}[!htp]
+  % Maximum length
+\subfloat[Prediction contour of Perceptron without Sigmoid activation]{\label{percep_w_sig}\includegraphics[height=3cm]{simple_models/percep_without_sigmoid.png}}\hfill
+\subfloat[Prediction contour of Perceptron without Sigmoid activation]{\label{percep_sig}\includegraphics[height=3cm]{simple_models/percep_with_sigmoid.png}}\hfill
+\subfloat[Prediction contour of Single Hidden Layer Neural Network without Sigmoid activation]{\label{simple_nn}\includegraphics[height=3cm]{simple_models/simple_neural_net.png}}
+   \caption{Analysis of Consistency of Perceptron with noisy data}
+\end{figure*}
+
+
+\begin{figure*}[!htp]
+  % Maximum length
+  \subfloat[Training losses of the different instances of the simple neural network]{\label{fig2:a}\includegraphics[width=1.00\linewidth]{NN_consistency/losses.jpg}}\\
+  \subfloat[Average error rates of the samples trained single hidden layer neural networks.]{\label{fig2:b}\includegraphics[width=0.33\linewidth]{NN_consistency/errors.jpg}}\hfill
+  \subfloat[Prediction contour of trained neural network with original data.(without noise)]{\label{fig2:c}\includegraphics[width=0.33\linewidth]{NN_consistency/orig_simple_neural_network_model2_contour.jpg}}\hfill
+  \subfloat[Prediction contour of trained neural network with original data.(without noise)]{\label{fig2:d}\includegraphics[width=0.33\linewidth]{NN_consistency/flipped_simple_neural_network_model2_contour.jpg}}
+   \caption{Analysis of Consistency of Neural Networks with noisy data}
+\end{figure*}
+
+
+
 
 \section{Conclusion}
 \label{sec-6}

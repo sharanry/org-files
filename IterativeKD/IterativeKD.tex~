@@ -1,4 +1,4 @@
-% Created 2019-07-15 Mon 20:26
+% Created 2019-07-16 Tue 15:33
 \documentclass[a4paper,twocolumn]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -142,14 +142,27 @@ We reduce the complexity blocks in the VGG-16 and VGG-19 network in a gradual ma
 \subsection{Loss Function}
 \label{sec-4-3}
 
-$LOSS = KLDivergence(ParentModel, ChildModel) + CrossEntropyLoss(Y, \hat{Y})$
+\( LOSS = KLDivergence(ParentModel, ChildModel) + CrossEntropyLoss(Y, \hat{Y}) \)
 
-
+./med
 \section{Results}
 \label{sec-5}
 
-[[./media/vgg16-cifar10/vgg16$_{\text{cifar10}}$$_{\text{Acc}}$.png]
-
+\begin{figure}[htb]
+\centering
+\includegraphics[width=.9\linewidth]{./media/vgg16-cifar10/vgg16_cifar10_Acc.png}
+\caption{\label{fig:SED-HR4049}This is the caption for the next figure link (or table)}
+\end{figure}
+\begin{figure}[htb]
+\centering
+\includegraphics[width=.9\linewidth]{./media/vgg16-cifar10/vgg16_cifar10_params_log.png}
+\caption{\label{fig:SED-HR4049}This is the caption for the next figure link (or table)}
+\end{figure}
+\begin{figure}[htb]
+\centering
+\includegraphics[width=.9\linewidth]{./media/vgg16-cifar10/vgg16_cifar10_size_log.png}
+\caption{\label{fig:SED-HR4049}This is the caption for the next figure link (or table)}
+\end{figure}
 \section{Conclusion}
 \label{sec-6}
 
