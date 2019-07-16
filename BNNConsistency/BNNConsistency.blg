@@ -1,0 +1,17 @@
+[0] Config.pm:302> INFO - This is Biber 2.9
+[1] Config.pm:305> INFO - Logfile is 'BNNConsistency.blg'
+[36] biber:313> INFO - === Tue Jul 16, 2019, 14:14:42
+[67] Biber.pm:371> INFO - Reading 'BNNConsistency.bcf'
+[145] Biber.pm:857> INFO - Found 5 citekeys in bib section 0
+[161] Biber.pm:3981> INFO - Processing section 0
+[174] Biber.pm:4154> INFO - Looking for bibtex format file 'BNNConsistency.bib' for section 0
+[176] bibtex.pm:1468> INFO - LaTeX decoding ...
+[194] bibtex.pm:1294> INFO - Found BibTeX data source 'BNNConsistency.bib'
+[202] Utils.pm:169> WARN - month field 'Feb' in entry 'NNnonsmooth' is not an integer - this will probably not sort properly.
+[256] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[256] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[256] Biber.pm:3809> INFO - Sorting list 'nyt/global//global/global' of type 'entry' with template 'nyt' and locale 'en-US'
+[256] Biber.pm:3815> INFO - No sort tailoring available for locale 'en-US'
+[268] bbl.pm:617> INFO - Writing 'BNNConsistency.bbl' with encoding 'UTF-8'
+[273] bbl.pm:720> INFO - Output to BNNConsistency.bbl
+[274] Biber.pm:110> INFO - WARNINGS: 1

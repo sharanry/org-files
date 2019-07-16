@@ -1,0 +1,122 @@
+% Created 2019-07-16 Tue 14:25
+\documentclass[a4paper,twocolumn]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{fixltx2e}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{marvosym}
+\usepackage{wasysym}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\tolerance=1000
+\usepackage[citestyle=authoryear-icomp,bibstyle=authoryear,hyperref=true,backref=true,maxcitenames=3,url=true,backend=biber,natbib=true]{biblatex}
+\addbibresource{BNNConsistency.bib}
+\setcounter{secnumdepth}{2}
+\author{Sharan Yalburgi, Julyan Arbel}
+\date{\today}
+\title{Studying Uncertainity in Bayesian Neural Networks}
+\hypersetup{
+  pdfkeywords={},
+  pdfsubject={},
+  pdfcreator={Emacs 25.2.2 (Org mode 8.2.10)}}
+\begin{document}
+
+\maketitle
+
+
+\section{Abstract}
+\label{sec-1}
+Availability of uncertainity measure is the one of the major reasons why Bayesian Neural Networks are topics of interest. It is therefore essential to understand the behavior of these uncertainity measures with varying prior conditions, amount of data and modelling tasks.
+
+
+\section{Introduction}
+\label{sec-2}
+
+Contributions of this paper is as follows:
+
+\section{Previous Work}
+\label{sec-3}
+
+\subsection{Study of Bayesian Neural Networks with Non-Smooth Functions \cite{NNnonsmooth}}
+\label{sec-3-1}
+
+\subsection{Consistency of Posterior Distributions for Neural Networks \cite{lee2000consistency}}
+\label{sec-3-2}
+
+\subsection{Classification kwith imperfect training labels \cite{cannings2018classification}}
+\label{sec-3-3}
+\begin{itemize}
+\item Study effect of imperfect training labels on performance of classification methods.
+
+\item Bound the excess risk of an arbitrary classifier trained with imperfect labels in terms of its excess risk for predicting a noisy labe
+\end{itemize}
+
+\subsection{A Theoretical Analysis of Deep Neural Networks for Texture Classification \cite{VC-CNN}}
+\label{sec-3-4}
+\begin{itemize}
+\item Derives the upper bounds on the VC dimension of Convolutional Neural Network as well as Dropout and Dropconnect networks and the relation between excess error rate of Dropout and Dropconnect networks.
+
+\item Introduces concept  of Intrinsic  Dimension to  show  that  texture  datasets  have  a higher dimensionality than color/shape based data.
+\end{itemize}
+
+\subsection{Understanding Priors in Bayesian Neural Networks at the Unit Level - \cite{vladimirova2019understanding}}
+\label{sec-3-5}
+\begin{itemize}
+\item Studies the "induced" prior distributions at a unit level. 
+\begin{itemize}
+\item I layer units are Gaussian
+\item II layer units are sub-exponential
+\item Units in deeper layers are characterized by sub-Weibull distributions.
+\end{itemize}
+\item This paper is devoted to the investigation of hidden units prior distributions in Bayesian neural networks under the assumption of independent Gaussian weights.
+\end{itemize}
+
+\subsection{Consistency of posterior distributions for neural networks - \cite{lee2000consistency}}
+\label{sec-3-6}
+
+Considers only feedforward neural networks with a single hidden layer of units with logistic activation functions(not done for popularly used ReLU activations) and linear output unit(no Sigmoid at the end).
+Shows that posterior probability of feedforward neural networks is \textbf{"asymptotically consistent"}. \( \hat{g_n} \) is asymptotically consistent for true regression function \( g_0 \) if
+\begin{equation}
+    \int (\hat{g_n}(x) - g_0(x))^2f_0(x)dx \xrightarrow{p} 0
+\end{equation}
+\( p \) here means that the probability, 
+
+\( P(|\int(\hat{g_n}(x) - g_0(x))^2f_0(x)dx| > \epsilon) \xrightarrow{} 0 \) as \( n \xrightarrow{} \infty\).
+\\
+\textbf{Asymptotically consistence in terms of Hellinger neighbourhood:} If $$(X_i, Y_i) ~ f_0$$, the posterior is asymptotically consistence for $$f_0$$(true joint distribution over X \& Y) over Hellinger neighbourhood if for every $$\epsilon>0$$
+\begin{equation}
+    P({f: D_H(f,f_0) <= \epsilon}|(X_i, Y_i) \forall i) \xrightarrow{p} 1
+\end{equation}
+where Hellinger distance $$D_H$$ is defined as 
+\begin{equation*}
+    D_H(f, f_0) = \sqrt{\int\int(\sqrt{f(x, y)}-\sqrt{f_0(x, y)})^2 dx dy}
+\end{equation*}
+\textbf{Another approach to consistency}: Posterior probability of every neighbourhood of true function tends to 1, i.e, $$P(A_\epsilon|Y) \longrightarrow 1$$ as $$n\xrightarrow{}1$$.
+\\\\
+\textbf{Sieve Approach:} The number of hidden nodes grows with the sample size so that asymptotically they use arbitrarily large number of nodes.
+\\\\
+\textbf{Parameter Approach:} Number of hidden nodes taken as a parameter(not sure if as a hyperparameter) and show that joint posterior is also consistent.
+Extends earlier results on "universal approximation properties of neural networks to the Bayesian setting".
+\\\\
+Shows mathematically that using a neural network to estimate and \textbf{continuous or square integrable} function will be consistent with probability tending to one given enough data. This is when the number of nodes grew with amount of data in a controlled way but $$k(n) \xrightarrow{} \infty$$ as $$n \xrightarrow{} \infty$$ where $$k$$ is the number of nodes in the network or when the number of nodes is a parameter which can be estimated from the data.    
+
+\section{Theory}
+\label{sec-4}
+
+\section{Experiments}
+\label{sec-5}
+
+\section{Conclusion}
+\label{sec-6}
+
+\section{Future Work}
+\label{sec-7}
+% Emacs 25.2.2 (Org mode 8.2.10)
+\end{document}

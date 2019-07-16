@@ -1,0 +1,252 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 2.9 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nyt/global//global/global}
+    \entry{VC-CNN}{article}{}
+      \name{author}{7}{}{%
+        {{uniquename=0,uniquepart=base,hash=3fea26a0e0377b153077f75f7b700eb8}{%
+           family={Basu},
+           familyi={B\bibinitperiod},
+           given={Saikat},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{uniquename=0,uniquepart=base,hash=5861090fe37548ef4c98689dd1367c82}{%
+           family={Karki},
+           familyi={K\bibinitperiod},
+           given={Manohar},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{uniquename=0,uniquepart=base,hash=ea78419957f1b944dcf214b31a721851}{%
+           family={DiBiano},
+           familyi={D\bibinitperiod},
+           given={Robert},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{uniquename=0,uniquepart=base,hash=8c8a87d0162ecf76c7f83a077d22c27c}{%
+           family={Mukhopadhyay},
+           familyi={M\bibinitperiod},
+           given={Supratik},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{uniquename=0,uniquepart=base,hash=fa5eef49f80eb796094f225ada22a370}{%
+           family={Ganguly},
+           familyi={G\bibinitperiod},
+           given={Sangram},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{uniquename=0,uniquepart=base,hash=481d52f5f64fb6146e71e1bda45ec8d7}{%
+           family={Nemani},
+           familyi={N\bibinitperiod},
+           given={Ramakrishna\bibnamedelima R.},
+           giveni={R\bibinitperiod\bibinitdelim R\bibinitperiod},
+           givenun=0}}%
+        {{uniquename=0,uniquepart=base,hash=9f38f72cc61a999dee2e97363a7e409c}{%
+           family={Gayaka},
+           familyi={G\bibinitperiod},
+           given={Shreekant},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{b8331dd39f3da2721c270079beccdfc3}
+      \strng{fullhash}{85e289e2d7b3f4fe2a452ea183b96d94}
+      \strng{bibnamehash}{b8331dd39f3da2721c270079beccdfc3}
+      \strng{authorbibnamehash}{b8331dd39f3da2721c270079beccdfc3}
+      \strng{authornamehash}{b8331dd39f3da2721c270079beccdfc3}
+      \strng{authorfullhash}{85e289e2d7b3f4fe2a452ea183b96d94}
+      \field{sortinit}{B}
+      \field{sortinithash}{276475738cc058478c1677046f857703}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprinttype}{arXiv}
+      \field{journaltitle}{CoRR}
+      \field{title}{A Theoretical Analysis of Deep Neural Networks for Texture Classification}
+      \field{volume}{abs/1605.02699}
+      \field{year}{2016}
+      \verb{eprint}
+      \verb 1605.02699
+      \endverb
+      \verb{urlraw}
+      \verb http://arxiv.org/abs/1605.02699
+      \endverb
+      \verb{url}
+      \verb http://arxiv.org/abs/1605.02699
+      \endverb
+    \endentry
+    \entry{cannings2018classification}{article}{}
+      \name{author}{3}{}{%
+        {{uniquename=0,uniquepart=base,hash=0eba3a4a857b1d6f902663c4d5863a72}{%
+           family={Cannings},
+           familyi={C\bibinitperiod},
+           given={Timothy\bibnamedelima I},
+           giveni={T\bibinitperiod\bibinitdelim I\bibinitperiod},
+           givenun=0}}%
+        {{uniquename=0,uniquepart=base,hash=84e992947ee6777f06640104c0dbbf0e}{%
+           family={Fan},
+           familyi={F\bibinitperiod},
+           given={Yingying},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+        {{uniquename=0,uniquepart=base,hash=b3c0fe200b58c411998da5c84d7361a6}{%
+           family={Samworth},
+           familyi={S\bibinitperiod},
+           given={Richard\bibnamedelima J},
+           giveni={R\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{ab125914b143d439f99e1c7b431d56d3}
+      \strng{fullhash}{ab125914b143d439f99e1c7b431d56d3}
+      \strng{bibnamehash}{ab125914b143d439f99e1c7b431d56d3}
+      \strng{authorbibnamehash}{ab125914b143d439f99e1c7b431d56d3}
+      \strng{authornamehash}{ab125914b143d439f99e1c7b431d56d3}
+      \strng{authorfullhash}{ab125914b143d439f99e1c7b431d56d3}
+      \field{sortinit}{C}
+      \field{sortinithash}{963e9d84a3da2344e8833203de5aed05}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{arXiv preprint arXiv:1805.11505}
+      \field{title}{Classification with imperfect training labels}
+      \field{year}{2018}
+    \endentry
+    \entry{NNnonsmooth}{article}{}
+      \name{author}{2}{}{%
+        {{uniquename=0,uniquepart=base,hash=5048833195b9669c1aecb1b3b14551da}{%
+           family={{Imaizumi}},
+           familyi={I\bibinitperiod},
+           given={Masaaki},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{uniquename=0,uniquepart=base,hash=e9c11e7f6e771dbb75fdfa98f94e91a0}{%
+           family={{Fukumizu}},
+           familyi={F\bibinitperiod},
+           given={Kenji},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{3fb2d724cecebfe5c9d715279b4ae487}
+      \strng{fullhash}{3fb2d724cecebfe5c9d715279b4ae487}
+      \strng{bibnamehash}{3fb2d724cecebfe5c9d715279b4ae487}
+      \strng{authorbibnamehash}{3fb2d724cecebfe5c9d715279b4ae487}
+      \strng{authornamehash}{3fb2d724cecebfe5c9d715279b4ae487}
+      \strng{authorfullhash}{3fb2d724cecebfe5c9d715279b4ae487}
+      \field{sortinit}{I}
+      \field{sortinithash}{320bc8fe8101b9376f9f21cd507de0e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eid}{arXiv:1802.04474}
+      \field{eprintclass}{stat.ML}
+      \field{eprinttype}{arXiv}
+      \field{journaltitle}{arXiv e-prints}
+      \field{month}{2}
+      \field{title}{{Deep Neural Networks Learn Non-Smooth Functions Effectively}}
+      \field{year}{2018}
+      \field{pages}{arXiv:1802.04474}
+      \range{pages}{-1}
+      \verb{eprint}
+      \verb 1802.04474
+      \endverb
+      \keyw{Statistics - Machine Learning}
+    \endentry
+    \entry{lee2000consistency}{article}{}
+      \name{author}{1}{}{%
+        {{uniquename=0,uniquepart=base,hash=aaace7a0deba437e9083a55dc59ca285}{%
+           family={Lee},
+           familyi={L\bibinitperiod},
+           given={Herbert\bibnamedelima KH},
+           giveni={H\bibinitperiod\bibinitdelim K\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{aaace7a0deba437e9083a55dc59ca285}
+      \strng{fullhash}{aaace7a0deba437e9083a55dc59ca285}
+      \strng{bibnamehash}{aaace7a0deba437e9083a55dc59ca285}
+      \strng{authorbibnamehash}{aaace7a0deba437e9083a55dc59ca285}
+      \strng{authornamehash}{aaace7a0deba437e9083a55dc59ca285}
+      \strng{authorfullhash}{aaace7a0deba437e9083a55dc59ca285}
+      \field{sortinit}{L}
+      \field{sortinithash}{2c7981aaabc885868aba60f0c09ee20f}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Neural Networks}
+      \field{number}{6}
+      \field{title}{Consistency of posterior distributions for neural networks}
+      \field{volume}{13}
+      \field{year}{2000}
+      \field{pages}{629\bibrangedash 642}
+      \range{pages}{14}
+    \endentry
+    \entry{vladimirova2019understanding}{inproceedings}{}
+      \name{author}{4}{}{%
+        {{uniquename=0,uniquepart=base,hash=6f21933cca37570912933ac584c16a35}{%
+           family={Vladimirova},
+           familyi={V\bibinitperiod},
+           given={Mariia},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{uniquename=0,uniquepart=base,hash=6db399bb4fce2fb790b103539429f56c}{%
+           family={Verbeek},
+           familyi={V\bibinitperiod},
+           given={Jakob},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{uniquename=0,uniquepart=base,hash=60c229fc5299ae44e9d1af5ea8948774}{%
+           family={Mesejo},
+           familyi={M\bibinitperiod},
+           given={Pablo},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+        {{uniquename=0,uniquepart=base,hash=1be6f8b4e6bf90d68f48eb31810f0ec9}{%
+           family={Arbel},
+           familyi={A\bibinitperiod},
+           given={Julyan},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{65d78e9e4cb44b6762f6a76f2fcaa181}
+      \strng{fullhash}{fa04ad1fee64085ef5604f76d821ded3}
+      \strng{bibnamehash}{65d78e9e4cb44b6762f6a76f2fcaa181}
+      \strng{authorbibnamehash}{65d78e9e4cb44b6762f6a76f2fcaa181}
+      \strng{authornamehash}{65d78e9e4cb44b6762f6a76f2fcaa181}
+      \strng{authorfullhash}{fa04ad1fee64085ef5604f76d821ded3}
+      \field{sortinit}{V}
+      \field{sortinithash}{75dd7385c90b2252c3ae853a80ca853b}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{International Conference on Machine Learning}
+      \field{title}{Understanding priors in Bayesian neural networks at the unit level}
+      \field{year}{2019}
+      \field{pages}{6458\bibrangedash 6467}
+      \range{pages}{10}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+
