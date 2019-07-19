@@ -1,0 +1,88 @@
+#+TITLE: A Summary of A General Framework for Uncertainty Estimation in Deep Learning
+#+AUTHOR: Sharan Yalburgi
+#+OPTIONS: toc:nil H:3 num:2
+#+OPTIONS: tex:t
+#+HTML_MATHJAX: align: left indent: 5em tagside: left font: Neo-Euler
+#+HTML_MATHJAX: cancel.js noErrors.js
+#+LaTeX_CLASS_OPTIONS: [a4paper]
+#+LATEX_HEADER: \usepackage[citestyle=authoryear-icomp,bibstyle=authoryear,hyperref=true,backref=true,maxcitenames=3,url=true,backend=biber,natbib=true]{biblatex}
+#+LATEX_HEADER: \usepackage{amsmath}
+#+LATEX_HEADER: \usepackage{subfig}
+#+LATEX_HEADER: \usepackage[margin=1in]{geometry}
+#+LATEX_HEADER: \addbibresource{GenFrameworkUncertainityEstInDL.bib}
+
+URL: https://arxiv.org/pdf/1907.06890.pdf
+
+* Aim
+
+Uncertainity Estimation in DNN without changing the neural network.  Their framework  can  be  applied  to  any  existing  neural  network  and task,  without  the  need  to  change  the  network’s  architecture  orloss,  or  to  train  the  network. 
+
+
+* Problem of interest
+
+Steering wheel predictions. We want prediction on postition of steering wheel along with the uncertainity estimation.
+
+* Basic Idea
+
+Forward propagating the uncertainities in inputs and model(weight) uncertainities.
+
+* Related Work
+
+** Dropout to Estimate Model Uncertainty
+
+*Monte Carlo Dropout* : \cite{gal2016dropout} proposed capturing model uncertainity by applying dropout at test time.
+
+*Limitations*: Assumes \sigma constant for all inputs. Does not accomodate adverserial inputs.
+
+** Learning Model and Data Uncertainty Together
+
+\cite{kendall2017uncertainties} proposed to jointly train to predict the model prediction and uncertainity. This technique can accomodate non-uniform label noise. 
+
+The model is trained under  /*Heteroscedastic Loss*/.
+
+ /*Heteroscedastic Loss*/ is defined as :
+
+\begin{equation}
+L_{NN}(\theta) = )\frac{1}{N}\sum_{i=1}^{N}\frac{1}{2\sigma^2(x_i)}\left \| y_i - f(x_i) \right \|^2 + \frac{1}{2}log\sigma^2(x_i)
+\end{equation}
+
+Here, we have input dependent noise \sigma^2(x_i).
+
+*Limitations*
+
++ This technique requires us to change the existing architecture of the NN, into a "two-head" system.
++ Heteroscedastic loss often results in performance drop.
+
+
+** Data Uncertainty Propagation with Assumed Density Filtering
+
+\cite{gast2018lightweight} introduced a lightweight approach to recover *data uncertainty* while maintaining the same network architecture, with minor changes to propagate both mean and variance of the input distribution.
+
+
+
+*Limitations* 
+
+Disregards model uncertainity, assuming large amount of data will nullify its effect which is often not true in applications like self driving.
+
+* Recovering Total Uncertainity
+
+** Fusing MC Dropout and Assumed Density Filtering
+The key idea is to train a regular NN and convert it into its ADF counter part.
+ADF can be seen as a probabilistic model p(y|z, \omega)p(z|x), where p(z|x) = \mathcal{N}(z;x,\sigma^2_n) is the input perturbed by white gaussian noise.
+
+We have two kinds of uncertainity here,
+
++ Model Uncertainity: We recover the model uncertainity by collecting stochastic samples from the ADF.
+
++ Data Uncertainity: This would be retrieved directly from the one of the data outputs, aka data variance \( \hat{\sigma}^2_{data \).
+
+We have a proof confirming that the total uncertainity Var(y) \approx Model Uncertainity + Data Uncertainity
+
+
+*** TODO What is Assumed Density Filtering(ADF)?
+    
+** Predictive Variance
+
+
+* L
+\printbibliography

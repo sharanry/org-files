@@ -128,6 +128,41 @@
       \field{title}{Classification with imperfect training labels}
       \field{year}{2018}
     \endentry
+    \entry{adaptiveSparseness}{article}{}
+      \name{author}{1}{}{%
+        {{uniquename=0,uniquepart=base,hash=41baf823f366ecdde4c93868e7dc9e36}{%
+           family={{Figueiredo}},
+           familyi={F\bibinitperiod},
+           given={M.\bibnamedelimi A.\bibnamedelimi T.},
+           giveni={M\bibinitperiod\bibinitdelim A\bibinitperiod\bibinitdelim T\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{41baf823f366ecdde4c93868e7dc9e36}
+      \strng{fullhash}{41baf823f366ecdde4c93868e7dc9e36}
+      \strng{bibnamehash}{41baf823f366ecdde4c93868e7dc9e36}
+      \strng{authorbibnamehash}{41baf823f366ecdde4c93868e7dc9e36}
+      \strng{authornamehash}{41baf823f366ecdde4c93868e7dc9e36}
+      \strng{authorfullhash}{41baf823f366ecdde4c93868e7dc9e36}
+      \field{sortinit}{F}
+      \field{sortinithash}{669c706c6f1fbf3b5a83d26f1d9e9e72}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{0162-8828}
+      \field{journaltitle}{IEEE Transactions on Pattern Analysis and Machine Intelligence}
+      \field{month}{9}
+      \field{number}{9}
+      \field{title}{Adaptive sparseness for supervised learning}
+      \field{volume}{25}
+      \field{year}{2003}
+      \field{pages}{1150\bibrangedash 1159}
+      \range{pages}{10}
+      \verb{doi}
+      \verb 10.1109/TPAMI.2003.1227989
+      \endverb
+      \keyw{learning by example;generalisation (artificial intelligence);Bayes methods;maximum likelihood estimation;inference mechanisms;statistical analysis;adaptive sparseness;supervised learning;functional mapping;training examples;generalization;Bayesian approaches;sparse solutions;hierarchical-Bayes interpretation;Laplacian prior;noninformative hyperprior;expectation-maximization algorithm;experiments;benchmark data sets;hyperparameters;Supervised learning;Bayesian methods;Training data;Support vector machines;Support vector machine classification;Automatic control;Laplace equations;Kernel;Neural networks;Feedforward neural networks}
+    \endentry
     \entry{NNnonsmooth}{article}{}
       \name{author}{2}{}{%
         {{uniquename=0,uniquepart=base,hash=5048833195b9669c1aecb1b3b14551da}{%
@@ -200,6 +235,35 @@
       \field{year}{2000}
       \field{pages}{629\bibrangedash 642}
       \range{pages}{14}
+    \endentry
+    \entry{rockova2018posterior}{inproceedings}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{1}{}{%
+        {{uniquename=0,uniquepart=base,hash=0382a07d66697d9a931d8a3e1ea67460}{%
+           family={Rockova},
+           familyi={R\bibinitperiod},
+           given={Veronika},
+           giveni={V\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{a90828e7d7c4e38dc5c3289dbf06fbe6}
+      \strng{fullhash}{a90828e7d7c4e38dc5c3289dbf06fbe6}
+      \strng{bibnamehash}{a90828e7d7c4e38dc5c3289dbf06fbe6}
+      \strng{authorbibnamehash}{a90828e7d7c4e38dc5c3289dbf06fbe6}
+      \strng{authornamehash}{a90828e7d7c4e38dc5c3289dbf06fbe6}
+      \strng{authorfullhash}{a90828e7d7c4e38dc5c3289dbf06fbe6}
+      \field{sortinit}{R}
+      \field{sortinithash}{da6b42bd3ab22fee61abed031ee405f7}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Advances in Neural Information Processing Systems}
+      \field{title}{Posterior concentration for sparse deep learning}
+      \field{year}{2018}
+      \field{pages}{930\bibrangedash 941}
+      \range{pages}{12}
     \endentry
     \entry{vladimirova2019understanding}{inproceedings}{}
       \name{author}{4}{}{%

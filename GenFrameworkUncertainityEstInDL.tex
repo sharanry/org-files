@@ -1,0 +1,126 @@
+% Created 2019-07-17 Wed 14:53
+\documentclass[a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{fixltx2e}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{marvosym}
+\usepackage{wasysym}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\tolerance=1000
+\usepackage[citestyle=authoryear-icomp,bibstyle=authoryear,hyperref=true,backref=true,maxcitenames=3,url=true,backend=biber,natbib=true]{biblatex}
+\usepackage{amsmath}
+\usepackage{subfig}
+\usepackage[margin=1in]{geometry}
+\addbibresource{GenFrameworkUncertainityEstInDL.bib}
+\setcounter{secnumdepth}{2}
+\author{Sharan Yalburgi}
+\date{\today}
+\title{A Summary of A General Framework for Uncertainty Estimation in Deep Learning}
+\hypersetup{
+  pdfkeywords={},
+  pdfsubject={},
+  pdfcreator={Emacs 25.2.2 (Org mode 8.2.10)}}
+\begin{document}
+
+\maketitle
+URL: \url{https://arxiv.org/pdf/1907.06890.pdf}
+
+\section{Aim}
+\label{sec-1}
+
+Uncertainity Estimation in DNN without changing the neural network.  Their framework  can  be  applied  to  any  existing  neural  network  and task,  without  the  need  to  change  the  network’s  architecture  orloss,  or  to  train  the  network. 
+
+
+\section{Problem of interest}
+\label{sec-2}
+
+Steering wheel predictions. We want prediction on postition of steering wheel along with the uncertainity estimation.
+
+\section{Basic Idea}
+\label{sec-3}
+
+Forward propagating the uncertainities in inputs and model(weight) uncertainities.
+
+\section{Related Work}
+\label{sec-4}
+
+\subsection{Dropout to Estimate Model Uncertainty}
+\label{sec-4-1}
+
+\textbf{Monte Carlo Dropout} : \cite{gal2016dropout} proposed capturing model uncertainity by applying dropout at test time.
+
+\textbf{Limitations}: Assumes $\sigma$ constant for all inputs. Does not accomodate adverserial inputs.
+
+\subsection{Learning Model and Data Uncertainty Together}
+\label{sec-4-2}
+
+\cite{kendall2017uncertainties} proposed to jointly train to predict the model prediction and uncertainity. This technique can accomodate non-uniform label noise. 
+
+The model is trained under  \emph{\textbf{Heteroscedastic Loss}}.
+
+\emph{\textbf{Heteroscedastic Loss}} is defined as :
+
+\begin{equation}
+L_{NN}(\theta) = )\frac{1}{N}\sum_{i=1}^{N}\frac{1}{2\sigma^2(x_i)}\left \| y_i - f(x_i) \right \|^2 + \frac{1}{2}log\sigma^2(x_i)
+\end{equation}
+
+Here, we have input dependent noise $\sigma$$^{\text{2}}$(x$_{\text{i}}$).
+
+\textbf{Limitations}
+
+\begin{itemize}
+\item This technique requires us to change the existing architecture of the NN, into a "two-head" system.
+\item Heteroscedastic loss often results in performance drop.
+\end{itemize}
+
+
+\subsection{Data Uncertainty Propagation with Assumed Density Filtering}
+\label{sec-4-3}
+
+\cite{gast2018lightweight} introduced a lightweight approach to recover \textbf{data uncertainty} while maintaining the same network architecture, with minor changes to propagate both mean and variance of the input distribution.
+
+
+
+\textbf{Limitations} 
+
+Disregards model uncertainity, assuming large amount of data will nullify its effect which is often not true in applications like self driving.
+
+\section{Recovering Total Uncertainity}
+\label{sec-5}
+
+\subsection{Fusing MC Dropout and Assumed Density Filtering}
+\label{sec-5-1}
+The key idea is to train a regular NN and convert it into its ADF counter part.
+ADF can be seen as a probabilistic model p(y|z, $\omega$)p(z|x), where p(z|x) = \mathcal{N}(z;x,$\sigma$$^{\text{2}}_{\text{n}}$) is the input perturbed by white gaussian noise.
+
+We have two kinds of uncertainity here,
+
+\begin{itemize}
+\item Model Uncertainity: We recover the model uncertainity by collecting stochastic samples from the ADF.
+
+\item Data Uncertainity: This would be retrieved directly from the one of the data outputs, aka data variance \( \hat{\sigma}^2_{data} \).
+\end{itemize}
+
+We have a proof confirming that the total uncertainity Var(y) $\approx$ Model Uncertainity + Data Uncertainity
+
+
+\subsubsection*{{\bfseries\sffamily TODO} What is Assumed Density Filtering(ADF)?}
+\label{sec-5-1-1}
+
+
+
+
+\section{L}
+\label{sec-6}
+\printbibliography
+% Emacs 25.2.2 (Org mode 8.2.10)
+\end{document}

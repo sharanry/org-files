@@ -1,0 +1,14 @@
+#+TITLE: A General Framework for Uncertainty Estimation in Deep Learning
+#+AUTHOR: Sharan Yalburgi
+#+OPTIONS: toc:nil H:3 num:2
+#+OPTIONS: tex:t
+#+HTML_MATHJAX: align: left indent: 5em tagside: left font: Neo-Euler
+#+HTML_MATHJAX: cancel.js noErrors.js
+#+DATE: July, 2019
+#+LaTeX_CLASS_OPTIONS: [a4paper]
+#+LATEX_HEADER: \usepackage[citestyle=authoryear-icomp,bibstyle=authoryear,hyperref=true,backref=true,maxcitenames=3,url=true,backend=biber,natbib=true]{biblatex}
+#+LATEX_HEADER: \addbibresource{GenFrameworkUncertainityEstInDL.bib}
+#+LATEX_HEADER: \graphicspath{ {images/}}
+#+LATEX_HEADER: \usepackage{amsmath}
+#+LATEX_HEADER: \usepackage{subfig}
+#+LATEX_HEADER: \usepackage[margin=1in]{geometry}

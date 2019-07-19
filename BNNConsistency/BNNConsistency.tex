@@ -1,5 +1,5 @@
-% Created 2019-07-16 Tue 17:46
-\documentclass[a4paper,twocolumn]{article}
+% Created 2019-07-19 Fri 11:45
+\documentclass[a4paper, twocolumn]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{fixltx2e}
@@ -19,7 +19,11 @@
 \usepackage[citestyle=authoryear-icomp,bibstyle=authoryear,hyperref=true,backref=true,maxcitenames=3,url=true,backend=biber,natbib=true]{biblatex}
 \addbibresource{BNNConsistency.bib}
 \graphicspath{ {images/}}
+\usepackage{amsmath}
 \usepackage{subfig}
+\usepackage{placeins}
+\usepackage{afterpage}
+\usepackage[margin=0.5in]{geometry}
 \setcounter{secnumdepth}{2}
 \author{Sharan Yalburgi, Julyan Arbel}
 \date{July, 2019}
@@ -91,7 +95,7 @@ Shows that posterior probability of feedforward neural networks is \textbf{"asym
 \end{equation}
 \( p \) here means that the probability, 
 
-\( P(|\int(\hat{g_n}(x) - g_0(x))^2f_0(x)dx| > \epsilon) \xrightarrow{} 0 \) as \( n \xrightarrow{} \infty\).
+\( P(|\int(\hat{g_n}(x) - g_0(x))^2f_0(x)dx| > \epsilon) \rightarrow 0 \) as \( n \rightarrow \infty\).
 \\
 \textbf{Asymptotically consistence in terms of Hellinger neighbourhood:} If \( (X_i, Y_i) ~ f_0 \), the posterior is asymptotically consistence for \(f_0\)(true joint distribution over X \& Y) over Hellinger neighbourhood if for every \(epsilon>0\)
 \begin{equation}
@@ -101,7 +105,7 @@ where Hellinger distance $$D_H$$ is defined as
 \begin{equation*}
     D_H(f, f_0) = \sqrt{\int\int(\sqrt{f(x, y)}-\sqrt{f_0(x, y)})^2 dx dy}
 \end{equation*}
-\textbf{Another approach to consistency}: Posterior probability of every neighbourhood of true function tends to 1, i.e, \(P(A_\epsilon|Y) \longrightarrow 1\) as \(n\xrightarrow{}1\).
+\textbf{Another approach to consistency}: Posterior probability of every neighbourhood of true function tends to 1, i.e, \(P(A_\epsilon|Y) \longrightarrow 1\) as \(n\rightarrow{}1\).
 \\\\
 \textbf{Sieve Approach:} The number of hidden nodes grows with the sample size so that asymptotically they use arbitrarily large number of nodes.
 \\\\
@@ -112,6 +116,62 @@ Shows mathematically that using a neural network to estimate and \textbf{continu
 
 \section{Theory}
 \label{sec-4}
+
+\subsection{L2 regularization is equivalent to Gaussian prior}
+\label{sec-4-1}
+From \cite{adaptiveSparseness}, assuming 
+
+\begin{equation}
+y_n = \beta x_n + \epsilon,
+\end{equation}
+
+where $\epsilon$ is Gaussian noise with mean 0 and variance $\sigma$$^{\text{2}}$. This gives rise to a Gaussian likelihood:
+
+\begin{equation}
+\prod_{n=1}^N \mathcal{N}(y_n|\beta x_n,\sigma^2).
+\end{equation}
+
+Let us regularise parameter $\beta$ by imposing the Gaussian prior $N(\beta|0,\lambda^{−1})$ , where $\lambda$ is a strictly positive scalar. Hence, combining the likelihood and the prior we simply have:
+
+\begin{equation}
+\prod_{n=1}^N \mathcal{N}(y_n|\beta x_n,\sigma^2) \mathcal{N}(\beta|0,\lambda^{-1}).
+\end{equation}
+
+Let us take the logarithm of the above expression. Dropping some constants we get:
+
+\begin{equation}
+\sum_{n=1}^N -\frac{1}{\sigma^2}(y_n-\beta x_n)^2 - \lambda \beta^2 + \mbox{const}.
+\end{equation}
+
+Therefore, here $\lambda$ is sessentially the hyperparameter controlling the extent of regularisation.
+
+
+We wan to prove
+
+\\\\
+Taking inspiration from \cite{rockova2018posterior}
+
+\begin{equation}
+\mathcal{F}(L, p, \lambda) = (f^{DL}_B: argmin_B\left \| B \right \|_2)
+\end{equation}
+
+
+Where 
+\begin{equation}
+B=\{(W_1,a_1),(W_2,a_2),\dots, (W_L,a_L)\},
+\end{equation}
+
+and \mathcal{F} is set of deep nets with gaussian priors on the parameters.
+
+
+
+
+
+We want to prove 
+
+\begin{equation}
+\Pi(A | Y^{(n), {x_i}^n_{i=1}
+\end{equation}
 
 \section{Experiments}
 \label{sec-5}
@@ -125,79 +185,63 @@ Shows mathematically that using a neural network to estimate and \textbf{continu
 
 
 
-\begin{figure*}[ht]
-\begin{tabular}{cc}
+\begin{table}[!h]
+\center
+\subfloat[]{\includegraphics[width = 0.45\linewidth]{knn_100runs.png}} &
+\subfloat[]{\includegraphics[width = 0.45\linewidth]{svc_100runs.png}} \\
+\subfloat[]{\includegraphics[width = 0.45\linewidth]{lda_100runs.png}} &
+\subfloat[]{\includegraphics[width = 0.4eval5\linewidth]{perceptron_100runs.png}}
 
-\subfloat[]{\includegraphics[width = 3.1in]{knn_100runs.png}} &
-\subfloat[]{\includegraphics[width = 3.1in]{svc_100runs.png}} \\
-\subfloat[]{\includegraphics[width = 3.1in]{lda_100runs.png}} &
-\subfloat[]{\includegraphics[width = 3.1in]{perceptron_100runs.png}}
+\afterpage{\FloatBarrier}
 
-\end{tabular}
 \caption{Reproduced results from \cite{cannings2018classification} with data generated from multivariate Gaussian \& Perceptron Findings}
-\end{figure*}
+\end{table}
 
 \subsection{Consistency in Perceptron and Deep Neural Networks}
 \label{sec-5-2}
 
-\begin{figure*}[!htp]
+\begin{figure}[!h]
   % Maximum length
+\center
 \subfloat[Prediction contour of Perceptron without Sigmoid activation]{\label{percep_w_sig}\includegraphics[height=3cm]{simple_models/percep_without_sigmoid.png}}\hfill
 \subfloat[Prediction contour of Perceptron without Sigmoid activation]{\label{percep_sig}\includegraphics[height=3cm]{simple_models/percep_with_sigmoid.png}}\hfill
 \subfloat[Prediction contour of Single Hidden Layer Neural Network without Sigmoid activation]{\label{simple_nn}\includegraphics[height=3cm]{simple_models/simple_neural_net.png}}
    \caption{Analysis of Consistency of Perceptron with noisy data}
-\end{figure*}
+\end{figure}
 
 
-\begin{figure*}[!htp]
+\begin{figure}[!h]
+  \center
   % Maximum length
   \subfloat[Training losses of the different instances of the simple neural network]{\label{fig2:a}\includegraphics[width=1.00\linewidth]{NN_consistency/losses.jpg}}\\
   \subfloat[Average error rates of the samples trained single hidden layer neural networks.]{\label{fig2:b}\includegraphics[width=0.33\linewidth]{NN_consistency/errors.jpg}}\hfill
   \subfloat[Prediction contour of trained neural network with original data.(without noise)]{\label{fig2:c}\includegraphics[width=0.33\linewidth]{NN_consistency/orig_simple_neural_network_model2_contour.jpg}}\hfill
   \subfloat[Prediction contour of trained neural network with original data.(without noise)]{\label{fig2:d}\includegraphics[width=0.33\linewidth]{NN_consistency/flipped_simple_neural_network_model2_contour.jpg}}
    \caption{Analysis of Consistency of Neural Networks with noisy data}
-\end{figure*}
+\end{figure}
 
 
 
 \subsection{Analysis of binary two-moons dataset classification using Bayesian Neural Networks(PyMC3)}
 \label{sec-5-3}
-\begin{figure*}[!htp]
+\begin{figure}[!h]
+\center
     \subfloat[Toy Two Moon Dataset]{\label{2moondataset}\includegraphics[width=0.50\linewidth]{bnn_classification_two_moon/dataset.png}}\hfill
     \subfloat[Prediction of Test Set by the Bayesian-NN  ]{\label{2moonpredicted}\includegraphics[width=0.50\linewidth]{bnn_classification_two_moon/predicted.png}}\\
     \subfloat[Prediction Contour]{\label{2moon_pred_contour}\includegraphics[width=0.50\linewidth]{bnn_classification_two_moon/prediction_contour.png}}\hfill
     \subfloat[Uncertainty Contour]{\label{2moon_uncer_contour}\includegraphics[width=0.50\linewidth]{bnn_classification_two_moon/uncertainity_contour.png}}\\
     \caption{Bayesian Neural Network trained to classify Two-Moon Dataset}
-\end{figure*}
+\end{figure}
 
 
-
-\subsection{Analysis of discontinuous regression using Bayesian Neural Networks(numpyro)}
+\subsection{Analysis of Bayesian Regression}
 \label{sec-5-4}
 
-\begin{figure*}[!htp]
-    \subfloat[sigma: 0.2 ]{\includegraphics[width=0.20\linewidth]{discontinuous_regression/discont_reg_02.png}}\hfill
-    \subfloat[sigma: 0.5 ]{\includegraphics[width=0.20\linewidth]{discontinuous_regression/discont_reg_05.png}}\hfill
-    \subfloat[sigma: 1.0 ]{\includegraphics[width=0.20\linewidth]{discontinuous_regression/discont_reg_10.png}}\hfill
-    \subfloat[sigma: 2.0 ]{\includegraphics[width=0.20\linewidth]{discontinuous_regression/discont_reg_20.png}}\hfill
-    \subfloat[sigma: 5.0 ]{\includegraphics[width=0.20\linewidth]{discontinuous_regression/discont_reg_50.png}}\\
-    \subfloat[Box plot of effective sample size of weights of each layer]{\includegraphics[width=1.00\linewidth]{discontinuous_regression/discont_effective_samples.png}}\\
-    \caption{Discontinuous regression using Bayesian Neural Networks}
-\end{figure*}
-
-Previous work on performance Neural Networks on non-smooth functions has been done in \cite{NNnonsmooth}. We extend this work by studying the behaviour of Neural Networks in the bayesian paradigm for non somooth regression. One of the aspects which interests us is the quantified uncertainity produced by the BNN. We also investigated its behaviour with changing prior $\sigma$ (applied to each weight). 
-
-
-
-\subsubsection*{Key Takeaways}
+\subsubsection*{Analysis of sensitivity of continuous regression using Bayesian Neural Networks with changing $\sigma$(numpyro)}
 \label{sec-5-4-1}
-$\sigma$ does have a considerable affect on the performance of the BNN. This could be because of excessive constraints on priors with smaller $\sigma$ when compared to a more relaxed prior for a large $\sigma$. This may have lead to a more "regularized" training leading to a "simpler" learned model.
 
-
-\subsection{Analysis of continuous regression using Bayesian Neural Networks(numpyro)}
-\label{sec-5-5}
-
-\begin{figure*}[!htp]
+\begin{figure*}[!h]
+    \center
     \subfloat[sigma: 0.2 ]{\includegraphics[width=0.20\linewidth]{continuous_regression/cont_reg_02.png}}\hfill
     \subfloat[sigma: 0.5 ]{\includegraphics[width=0.20\linewidth]{continuous_regression/cont_reg_05.png}}\hfill
     \subfloat[sigma: 1.0 ]{\includegraphics[width=0.20\linewidth]{continuous_regression/cont_reg_10.png}}\hfill
@@ -205,7 +249,67 @@ $\sigma$ does have a considerable affect on the performance of the BNN. This cou
     \subfloat[sigma: 5.0 ]{\includegraphics[width=0.20\linewidth]{continuous_regression/cont_reg_50.png}}\\
     \subfloat[Box plot of effective sample size of weights of each layer]{\includegraphics[width=1.00\linewidth]{continuous_regression/cont_effective_samples.png}}\\
     \caption{Continuous regression using Bayesian Neural Networks}
+    \label{continuous_regeression}
 \end{figure*}
+
+
+We start of our regression analysis my trying fit simple smooth
+
+The results can be found in Figure: \ref{continuous_regeression}
+
+
+\subsubsection*{Analysis of sensitivity of discontinuous regression using Bayesian Neural Networks with changing $\sigma$(numpyro)}
+\label{sec-5-4-2}
+
+\begin{figure*}[!h]
+    \subfloat[sigma: 0.2 ]{\includegraphics[width=0.20\linewidth]{discontinuous_regression/simple_discont_reg_02.png}}\hfill
+    \subfloat[sigma: 0.5 ]{\includegraphics[width=0.20\linewidth]{discontinuous_regression/simple_discont_reg_05.png}}\hfill
+    \subfloat[sigma: 1.0 ]{\includegraphics[width=0.20\linewidth]{discontinuous_regression/simple_discont_reg_10.png}}\hfill
+    \subfloat[sigma: 2.0 ]{\includegraphics[width=0.20\linewidth]{discontinuous_regression/simple_discont_reg_20.png}}\hfill
+    \subfloat[sigma: 5.0 ]{\includegraphics[width=0.20\linewidth]{discontinuous_regression/simple_discont_reg_50.png}}\\
+    \subfloat[Box plot of effective sample size of weights of each layer]{\includegraphics[width=1.00\linewidth]{discontinuous_regression/simple_discont_effective_samples.png}}\\
+    \caption{Simple Discontinuous regression using Bayesian Neural Networks}
+\end{figure*}
+
+\begin{figure*}[!h]
+    \subfloat[sigma: 0.2 ]{\includegraphics[width=0.20\linewidth]{discontinuous_regression/comp_discont_reg_02.png}}\hfill
+    \subfloat[sigma: 0.5 ]{\includegraphics[width=0.20\linewidth]{discontinuous_regression/comp_discont_reg_05.png}}\hfill
+    \subfloat[sigma: 1.0 ]{\includegraphics[width=0.20\linewidth]{discontinuous_regression/comp_discont_reg_10.png}}\hfill
+    \subfloat[sigma: 2.0 ]{\includegraphics[width=0.20\linewidth]{discontinuous_regression/comp_discont_reg_20.png}}\hfill
+    \subfloat[sigma: 5.0 ]{\includegraphics[width=0.20\linewidth]{discontinuous_regression/comp_discont_reg_50.png}}\\
+    \subfloat[Box plot of effective sample size of weights of each layer]{\includegraphics[width=1.00\linewidth]{discontinuous_regression/comp_discont_effective_samples.png}}\\
+    \caption{Discontinuous regression using Bayesian Neural Networks}
+\end{figure*}
+
+
+Previous work on performance Neural Networks on non-smooth functions has been done in \cite{NNnonsmooth}. We extend this work by studying the behaviour of Neural Networks in the bayesian paradigm for non somooth regression. One of the aspects which interests us is the quantified uncertainity produced by the BNN. We also investigated its behaviour with changing prior $\sigma$ (applied to each weight). 
+
+
+
+\textbf{Key Takeaways}
+
+$\sigma$ does have a considerable affect on the performance of the BNN. This could be because of excessive constraints on priors with smaller $\sigma$ when compared to a more relaxed prior for a large $\sigma$. This may have lead to a more "regularized" training leading to a "simpler" learned model.
+
+
+NOTE: Regression training of BNN regardless of type of functions require considerable amount of warmup steps when training using MCMC based algorithms like Hamiltonian Monte Carlo(HMC).
+
+
+\subsubsection*{Asymtotic analysis of uncertainity bounds of discontinuous regression using Bayesian Neural Networks(numpyro)}
+\label{sec-5-4-3}
+
+\begin{figure*}[!h]
+    \subfloat[\#data : 54 ]{\includegraphics[width=0.16\linewidth]{discontinuous_regression/asymtotic/comp_discont_reg_0054.png}}\hfill
+    \subfloat[\#data : 148 ]{\includegraphics[width=0.16\linewidth]{discontinuous_regression/asymtotic/comp_discont_reg_0148.png}}\hfill
+    \subfloat[\#data : 403 ]{\includegraphics[width=0.16\linewidth]{discontinuous_regression/asymtotic/comp_discont_reg_0403.png}}\hfill
+    \subfloat[\#data : 1096 ]{\includegraphics[width=0.16\linewidth]{discontinuous_regression/asymtotic/comp_discont_reg_1096.png}}\hfill
+    \subfloat[\#data : 2980 ]{\includegraphics[width=0.16\linewidth]{discontinuous_regression/asymtotic/comp_discont_reg_2980.png}}\hfill
+    \subfloat[\#data : 8103 ]{\includegraphics[width=0.16\linewidth]{discontinuous_regression/asymtotic/comp_discont_reg_8103.png}}\\
+    \caption{Asymtotic analysis of discontinuous regression using Bayesian Neural Networks}
+    \label{aysmtotic_discont_regression}
+\end{figure*}
+
+In Fig: \ref{aysmtotic_discont_regression} we analyse the behaviour of uncertainity bounds with exponentially increasing amount of data.
+We conjecture that the regression confidence bound of a bayesian neural networks asymtotically (w.r.t. data) converges to true confidence bound. 
 
 
 \section{Conclusion}
@@ -213,5 +317,8 @@ $\sigma$ does have a considerable affect on the performance of the BNN. This cou
 
 \section{Future Work}
 \label{sec-7}
+
+\afterpage{\FloatBarrier}
+\printbibliography
 % Emacs 25.2.2 (Org mode 8.2.10)
 \end{document}
